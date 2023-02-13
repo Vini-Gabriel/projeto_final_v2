@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>Cadastro</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+		<h1>Cadastro de Administrador</h1>
+<!-- 		<div class="row"> -->
+<!-- 			<form class="col s12" id="interno" action="/farmacia/salvarUsuarios" -->
+<!-- 				method="post"> -->
+
+<!-- 				<div class="row"> -->
+<!-- 					<div class="input-field col s12"> -->
+<!-- 						<label class="inputName">Nome</label><br> <input name="nome" -->
+<!-- 							type="text" class="validate"> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="row"> -->
+<!-- 					<div class="input-field col s12"> -->
+<!-- 						<label class="inputName">E-mail</label><br> <input -->
+<!-- 							name="email" type="text" class="validate"> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="row"> -->
+<!-- 					<div class="input-field col s12"> -->
+<!-- 						<label class="inputName">Senha</label> <br> <input -->
+<!-- 							name="senha" type="password" class="validate"> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div> -->
+<!-- 					<button type="submit" class="btn" id="botao">Cadastrar-se</button> -->
+<!-- 					<button type="reset" class="btn" id="botao">Limpar</button> -->
+<!-- 				</div> -->
+<!-- 			</form> -->
+<!-- 		</div> -->
+	    
+	    <form action="/comercio/salvarUsuarios" method="post" th:object="${venda}">
+			<div>
+				<input type="hidden" th:field="*{id}" readonly="readonly">
+			</div>
+			<div>
+				<label>Nome:</label> <input type="text" th:field="*{nome}">
+				<p th:errors="*{nome}"></p>
+			</div>
+			<div>
+				<label>Email:</label> <input type="text" th:field="*{email}">
+				<p th:errors="*{email}"></p>
+			</div>
+			<div>
+				<label>Senha:</label> <input type="date" th:field="*{senha}">
+				<p th:errors="*{senha}"></p>
+			</div>
+			<div>
+				<label>Tipo:</label> <input type="time" th:field="*{tipo}">
+				<p th:errors="*{tipo}"></p>
+			</div>
+			<div>
+				<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+				<button class="waves-effect waves-light btn" type="reset">Limpar</button>
+			</div>
+		</form>
+    </div>
+</body>
+</html>

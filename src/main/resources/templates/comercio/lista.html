@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<title>Comercio</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+
+		<h1>Lista de Vendas</h1>
+
+		<p th:if="${mensagem}" th:text="${mensagem}"></p>
+		<table class="highlight">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Local</th>
+					<th>Data</th>
+					<th>Horário</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="v : ${vendas}">
+					<td th:text="${v.id}">1</td>
+					<td><a th:href="@{/comercio/{id}(id=${v.id})}"><span
+							th:text="${v.nome}">Aniversário de João</span></a></td>
+					<td th:text="${v.local}">Clube</td>
+					<td th:text="${#temporals.format(v.data)}">25/02/2021</td>
+					<td th:text="${v.horario}">19:00</td>
+					<td>
+						<a th:href="@{/comercio/{id}/selecionar(id=${v.id})}"><i class="material-icons">edit</i></a>
+						<a th:href="@{/comercio/{id}/remover(id=${v.id})}"><i class="material-icons">delete</i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>

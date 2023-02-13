@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+	<nav th:fragment="menu" style="background-color: rgb(99, 146, 248);">
+		<div class="nav-wrapper container">
+			<a href="/" class="brand-logo">Sistema de Comércio</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="/">Home</a></li>
+				<li><a href="/comercio/form">Adicionar Venda</a></li>
+			</ul>
+		</div>
+	</nav>
+</body>
+</html>

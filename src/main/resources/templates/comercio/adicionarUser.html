@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+</head>
+
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container" id="cadastro">
+	
+		<h1>Cadastro de Usuários</h1>
+	
+		<div class="row">
+			<form class="col s12" id="interno" action="/farmacia/salvarFuncionario"
+				method="post">
+
+				<div class="row">
+					<div class="input-field col s12">
+						<label class="inputName">Nome</label><br> <input name="nome"
+							type="text" class="validate">
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<label class="inputName">E-mail</label><br> <input
+							name="email" type="text" class="validate">
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<label class="inputName">Senha</label> <br> <input
+							name="senha" type="password" class="validate">
+					</div>
+				</div>
+				<div>
+					<button type="submit" class="btn" id="botao">Cadastrar-se</button>
+					<button type="reset" class="btn" id="botao">Limpar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

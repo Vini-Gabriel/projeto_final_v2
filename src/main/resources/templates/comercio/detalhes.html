@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<title>Comercio</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+	
+		<h1>Detalhes da Venda</h1>
+
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title">Venda</span>
+						<p><strong>Id: </strong><span th:text="${venda.id}">1</span></p>
+						<p><strong>Nome: </strong><span th:text="${venda.nome}">Aniversário de José</span></p>
+						<p><strong>Local: </strong><span th:text="${venda.local}">Clube</span></p>
+						<p><strong>Data: </strong><span th:text="${venda.data}">25/02/2021</span></p>
+						<p><strong>Horário: </strong><span th:text="${venda.horario}">20:00</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title">Adicionar Produto:</span>
+						<form th:action="@{/comercio/{idVenda}(idVenda=${venda.id})}" method="post">
+						<div>
+							<input type="hidden" name="id" th:value="${produto.id}" readonly="readonly">
+						</div>
+						<div>
+							<label>Nome: </label> <input type="text" name="nome" th:value="${produto.nome}">
+						</div>
+						<div>
+							<label>Valor: </label> <input type="text" name="valor" th:value="${produto.valor}">
+						</div>
+						<div>
+							<button type="submit" class="btn">Salvar</button>
+							<button type="reset" class="btn">Limpar</button>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title">Produtos</span>
+						<table class="highlight">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Nome</th>
+									<th>Valor</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="p : ${produtos}">
+									<td th:text="${p.id}">1</td>
+									<td th:text="${p.nome}">biscoito</td>
+									<td th:text="${p.valor}">123</td>
+									<td>
+										<a th:href="@{/comercio/{idVenda}/produtos/{idProduto}/selecionar(idVenda=${venda.id}, idProduto=${p.id})}"><i class="material-icons">edit</i></a>
+										<a th:href="@{/comercio/{idVenda}/produtos/{idProduto}/remover(idVenda=${venda.id}, idProduto=${p.id})}"><i class="material-icons">delete</i></a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<title>Login</title>
+
+<!-- <link rel="stylesheet" href="http://localhost:8080/snacks/cardapio"> -->
+
+</head>
+
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container" id="login">
+		<h1>Login</h1>
+	<!-- <div class="row"> -->
+		<!-- <form action="/comercio/salvarUsuarios" method="post" th:object="${venda}"> -->
+			<form class="col s12" action="/comercio/entrar" id="interno" method="post">
+				<div class="row">
+					<div class="input-field col s12">
+						<label>E-mail</label><br> <input
+							id="email" type="email" name="email" >
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<label >Senha</label> <br> <input
+							id="senha" type="password" name="senha">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-4">
+						<button class="btn waves-effect waves-light" type="submit">Login</button>
+						<button class="btn waves-effect waves-light" type="reset">Limpar</button>
+					</div>
+				</div>
+			</form>
+	<!-- </div> -->
+	</div>
+</body>
+</html>
